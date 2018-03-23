@@ -2,17 +2,17 @@
 
 ## 用户key生成
 
-1.切换到.ssh目录
+1.切换到.ssh目录   
 ``` bash
 cd ~/.ssh
 ```
 
-2.使用自己的企业邮箱产生SSH KEY
+2.使用自己的企业邮箱产生SSH KEY   
 ``` bash
 ssh-keygen -t rsa -C "XXX@email.com"
 ```
 
-3.企业的可以使用id_rsa，也可以自己起名，例如：id_rsa_work
+3.企业的可以使用id_rsa，也可以自己起名，例如：id_rsa_work    
 ``` bash
 Enter file in which to save the key (/Users/ltc/.ssh/id_rsa): id_rsa
 ```
