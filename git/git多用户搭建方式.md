@@ -45,18 +45,25 @@ vim config
 ```
 
 3.config内容如下：
-> Host changyong	#远程地址ssh链接中@符号后边的值   
+> #user one
+> #远程地址ssh链接中@符号后边的值
+> Host changyong	   
 > User git   
-> Hostname git.***.com  #私服的git地址   
-> IdentityFile ~/.ssh/id_rsa  #访问私服git的SSH KEY   
+> #私服的git地址  
+> Hostname git.***.com   
+> #访问私服git的SSH KEY  
+> IdentityFile ~/.ssh/id_rsa     
 >    
+> #user two
 > Host github   
 > User git    
-> Hostname github.com #github的地址   
-> IdentityFile ~/.ssh/id_rsa_github  #访问github的SSH KEY   
+> #github的地址  
+> Hostname github.com  
+> #访问github的SSH KEY    
+> IdentityFile ~/.ssh/id_rsa_github    
 
 4.测试配置   
-	* ssh -T git@github	#github值即为3步中的config的Host的值   
+	* ssh -T git@github	#[github]即为3步中的config的Host的值   
 	* 根据结果判断成功与否   
 	* 测试成功之后在.ssh文件夹下会生成名为known_hosts文件   
 	* github地址可能存在变化，所以在使用过程known_hosts会做变动   
