@@ -27,8 +27,9 @@ ssh-add ~/.ssh/id_rsa
 ![](./images/ssh-key.png)
 
 在图中添加Title，可以随便写： 
-将.ssh目录下对应的id_rsa_github.pub中的内容拷到Key中，点击Add SSH key按钮即可。
-git私仓的类似。
+* 将.ssh目录下对应的id_rsa_github.pub中的内容拷到Key中
+* 点击Add SSH key按钮即可
+* git私仓的类似
 
 ## 配置多用户
 
@@ -54,12 +55,14 @@ vim config
    IdentityFile ~/.ssh/id_rsa_github  #访问github的SSH KEY
 
 4.测试配置
-	ssh -T git@github	#github值即为3步中的config的Host的值
-	根据结果判断成功与否，测试成功之后在.ssh文件夹下会生成名为known_hosts文件
+	* ssh -T git@github	#github值即为3步中的config的Host的值
+	* 根据结果判断成功与否
+	* 测试成功之后在.ssh文件夹下会生成名为known_hosts文件
 	
 5.修改已pull的本地仓库
-	在.git目录下有一个config
-	修改[remote "origin"]下边的url即可，新拉取的按照ssh的url修改@后边的host即可
+	* 在.git目录下有一个config
+	* 修改[remote "origin"]下边的url即可
+	* 新拉取的按照ssh的url修改@后边的host即可
 
 
 
