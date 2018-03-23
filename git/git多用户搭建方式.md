@@ -45,15 +45,15 @@ vim config
 ```
 
 3.config内容如下：
-   Host changyong	#远程地址ssh链接中@符号后边的值
-   User git
-   Hostname git.***.com  #私服的git地址
-   IdentityFile ~/.ssh/id_rsa  #访问私服git的SSH KEY
-
-   Host github
-   User git
-   Hostname github.com #github的地址
-   IdentityFile ~/.ssh/id_rsa_github  #访问github的SSH KEY
+> Host changyong	#远程地址ssh链接中@符号后边的值
+> User git
+> Hostname git.***.com  #私服的git地址
+> IdentityFile ~/.ssh/id_rsa  #访问私服git的SSH KEY
+> 
+> Host github
+> User git
+> Hostname github.com #github的地址
+> IdentityFile ~/.ssh/id_rsa_github  #访问github的SSH KEY
 
 4.测试配置
 	* ssh -T git@github	#github值即为3步中的config的Host的值
