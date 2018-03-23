@@ -23,7 +23,8 @@ ssh-add ~/.ssh/id_rsa
 ```
 
 ## 服务器授权
-在生成ssh key之后，本例中remote链接为ssh（remote的url有两种模式，一种传统的https，一种是ssh），以github为例：
+在生成ssh key之后，本例中remote链接为ssh（remote的url有两种模式，一种传统的https，一种是ssh）
+以github为例：
 ![](./images/ssh-key.png)
 
 在图中添加Title，可以随便写： 
@@ -58,6 +59,7 @@ vim config
 	* ssh -T git@github	#github值即为3步中的config的Host的值
 	* 根据结果判断成功与否
 	* 测试成功之后在.ssh文件夹下会生成名为known_hosts文件
+	* github地址可能存在变化，所以在使用过程known_hosts会做变动
 	
 5.修改已pull的本地仓库
 	* 在.git目录下有一个config
