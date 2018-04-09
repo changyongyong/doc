@@ -32,12 +32,62 @@ git add -A
 ``` bash
 git commit -am '日志描述'
 ```
-	
+
+## 拉取
+从远程获取最新版本到本地 git pull = git fetch + git merge    
+``` bash
+git pull
+```
+
+## 获取
+从远程获取最新版本到本地，但不会自动merge，跟本地对比之后需要merge才能到开发空间   
+``` bash
+git fetch
+```
+
 ## 查看本地分支
 ``` bash
 git branch
 ```
 	
-	
-	
-	
+## 删除本地分支
+``` bash
+git branch -D BranchName
+```	
+
+其中-D也可以是--delete，如：    
+``` bash
+git branch --delete BranchName
+```	
+
+## 删除本地的远程分支
+``` bash
+git branch -r -D origin/BranchName
+```	
+
+## 远程删除git服务器上的分支
+``` bash
+git push origin -d BranchName
+```	
+
+其中-d也可以是--delete，如：    
+``` bash
+git push origin --delete BranchName
+```		
+
+也可以是置空远程分支(origin 后面有空格)：   
+``` bash
+git push origin :br  
+```	
+
+## 本地代码库回滚
+回滚到commit-id，将commit-id之后提交的commit都去除，不带commit-id即回滚到最近一次提交到远端版本，
+所以一般要用服务器覆盖本地需要先fetch命令  
+``` bash
+git reset --hard commit-id
+```	
+
+将最近3次的提交回滚    
+``` bash
+git reset --hard HEAD~3
+```	
