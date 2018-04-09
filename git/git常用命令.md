@@ -1,6 +1,6 @@
 # git常用命令
 
-## 克隆远程分支
+## 克隆
 	根据用户配置，这里url做了修改，@后边少了.com      
 	git@github.com:changyongyong/doc.git修改为git@github:changyongyong/doc.git     
 ``` bash
@@ -50,6 +50,40 @@ git fetch
 git branch
 ```
 	
+## 新建分支
+``` bash
+git branch newBranch
+```
+
+## 切换到你的新分支
+``` bash
+git checkout newBranch
+```
+
+## 创建并切换到新分支
+``` bash
+git checkout -b newBranch
+```
+
+## 拉取远程分支并创建本地
+这种情况会自动关联远程和本地分支   
+``` bash
+git checkout -b newBranch origin remoteBranch
+```
+
+## 将新分支发布到远程
+``` bash
+git push origin newBranch:newBranch
+```
+
+## 关联本地分支和remote分支
+``` bash
+git branch --set-upstream-to=origin/dev dev
+```
+``` bash
+git branch --set-upstream dev origin/dev
+```
+
 ## 删除本地分支
 ``` bash
 git branch -D BranchName
