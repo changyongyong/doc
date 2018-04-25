@@ -47,10 +47,10 @@ vim config
 3.config内容如下：
 因为id_rsa权限文件多个用户存在多个，所以可以根据需要修改名称，或者存放到特定文件夹下  
 > #user one.    
-> #远程地址ssh链接中@符号后边的值.   
+> #远程地址ssh链接中@符号后边的值，带端口号就加上.   
 > Host changyong	   
 > User git   
-> #私服的git地址  
+> #私服的git地址，有端口号这里不加，在克隆地址的Host:端口  
 > Hostname git.***.com   
 > #访问私服git的SSH KEY  
 > IdentityFile ~/.ssh/id_rsa     
