@@ -76,6 +76,10 @@ git checkout -b newBranch origin remoteBranch
 git push origin newBranch:newBranch
 ```
 
+``` bash
+git push -u origin newBranch
+```
+
 ## 关联本地分支和remote分支
 ``` bash
 git branch --set-upstream-to=origin/dev dev
