@@ -1,9 +1,13 @@
 # CentOS6.6安装ShadowSocks服务端
 
 ## 查看系统
-[root@localhost ~]# cat /etc/issue
+```
+cat /etc/issue
+```
 CentOS release 6.6 (Final)
-[root@localhost ~]# uname -a
+```
+uname -a
+```
 Linux localhost.localdomain 2.6.32-042stab106.6 #1 SMP Mon Apr 20 14:48:47 MSK 2015 x86_64 x86_64 x86_64 GNU/Linux
 
 ## 安装ShadowSocks  
@@ -14,10 +18,8 @@ Linux localhost.localdomain 2.6.32-042stab106.6 #1 SMP Mon Apr 20 14:48:47 MSK 2
 
 ## 创建配置文件/etc/shadowsocks.json
 ```
-[root@localhost /]# touch /etc/shadowsocks.json
-```
-```
-[root@localhost /]# vi /etc/shadowsocks.json
+touch /etc/shadowsocks.json    
+vi /etc/shadowsocks.json
 ```    
 {    
 "server":"159.203.180.134",    
@@ -41,16 +43,18 @@ Linux localhost.localdomain 2.6.32-042stab106.6 #1 SMP Mon Apr 20 14:48:47 MSK 2
 ## 使用配置文件在后台运行shadowsocks服务
 
 ```
-[root@localhost /]# ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d start
 ```
  
 备注：若无配置文件，在后台可以使用一下命令运行：
-[root@localhost /]# ssserver -p 443 -k MyPass -m rc4-md5 -d start
+```
+ssserver -p 443 -k MyPass -m rc4-md5 -d start
+```
  
 ## 停止服务
  	
 ```
-[root@localhost /]# ssserver -c /etc/shadowsocks.json -d stop
+ssserver -c /etc/shadowsocks.json -d stop
 ```
 参考：
 https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-使用说明
@@ -63,13 +67,15 @@ http://wuchong.me/blog/2015/02/02/shadowsocks-install-and-optimize/
 
 在控制台执行以下命令安装 pip：    
 ```
-curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"    
 python get-pip.py
 ```
 
 在控制台执行以下命令安装 shadowsocks：
-pip install --upgrade pip
+```
+pip install --upgrade pip     
 pip install shadowsocks
+```
 
 安装完成后，需要创建配置文件/etc/shadowsocks.json，内容如下：
 {
@@ -170,8 +176,15 @@ echo "--------------------------------"
 
 执行以下命令一键安装：
 
+```
 chmod +x install-shadowsocks.sh
 ./install-shadowsocks.sh
+```
 
 也可以直接执行以下命令从 GitHub 下载安装脚本并执行：
+```
 bash <(curl -s http://morning.work/examples/2015-12/install-shadowsocks.sh)
+```
+
+
+
