@@ -65,6 +65,19 @@ git checkout newBranch
 git checkout -b newBranch
 ```
 
+## 合并分支
+把otherBranch合并到当前分支，一般采用merge
+``` bash
+git merge otherBranch
+```
+有另一种合并，也是把otherBranch合并到当前分支
+``` bash
+git rebase otherBranch
+```
+merge和rebase的区别，以本地分支和私服分支为例：   
+1、merge合并后结果是一个新的提交，（merge commit）是一个新版本，相当于把私服的内容给本地修改了一次     
+2、rebase合并后结果不是新的提交，是把自己分支修改的部分接续到私服分支上，相当于本地修改的记录是在私服最新版本上迭代的，比merge少了一个（merge commit）版本，而且和merge的log日志顺序不一样，不过该情况下也造成rebase冲突概率较大     
+
 ## 拉取远程分支并创建本地
 这种情况会自动关联远程和本地分支   
 ``` bash
