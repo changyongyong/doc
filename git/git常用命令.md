@@ -101,6 +101,12 @@ git branch --set-upstream-to=origin/dev dev
 git branch --set-upstream dev origin/dev
 ```
 
+## 发布新分支并且关联remote分支
+-u为--set-upstream缩写.  
+``` bash
+git push -u origin master
+```
+
 ## 删除本地分支
 ``` bash
 git branch -D BranchName
