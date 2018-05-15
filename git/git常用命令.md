@@ -89,10 +89,6 @@ git checkout -b newBranch origin remoteBranch
 git push origin newBranch:newBranch
 ```
 
-``` bash
-git push -u origin newBranch
-```
-
 ## 关联本地分支和remote分支
 ``` bash
 git branch --set-upstream-to=origin/dev dev
@@ -104,7 +100,7 @@ git branch --set-upstream dev origin/dev
 ## 发布新分支并且关联remote分支
 -u为--set-upstream缩写.  
 ``` bash
-git push -u origin master
+git push -u origin newBranch
 ```
 
 ## 删除本地分支
