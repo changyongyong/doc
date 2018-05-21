@@ -81,7 +81,7 @@ merge和rebase的区别，以本地分支和私服分支为例：
 ## 拉取远程分支并创建本地
 这种情况会自动关联远程和本地分支   
 ``` bash
-git checkout -b newBranch origin remoteBranch
+git checkout -b newBranch origin/remoteBranch
 ```
 
 ## 将新分支发布到远程
@@ -144,3 +144,10 @@ git reset --hard commit-id
 ``` bash
 git reset --hard HEAD~3
 ```	
+
+## 修改分支名称
+``` bash
+ git branch -m newName
+```	
+
+
