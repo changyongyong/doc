@@ -8,6 +8,7 @@ $ cd ~/.ssh
 ```
 
 2.使用自己的企业邮箱产生SSH KEY   
+
 ``` bash
 $ ssh-keygen -t rsa -C "XXX@email.com"
 ```
@@ -54,7 +55,7 @@ vim config
 > Hostname git.***.com   
 > #访问私服git的SSH KEY  
 > IdentityFile ~/.ssh/id_rsa     
->    
+> 
 > #user two.   
 > Host github   
 > User git    
@@ -64,15 +65,15 @@ vim config
 > IdentityFile ~/.ssh/id_rsa_github    
 
 4.测试配置   
-	* ssh -T git@github	#[github]即为3步中的config的Host的值   
-	* 根据结果判断成功与否   
-	* 测试成功之后在.ssh文件夹下会生成名为known_hosts文件   
-	* github地址可能存在变化，所以在使用过程known_hosts会做变动   
-	
+​	* ssh -T git@github	#[github]即为3步中的config的Host的值   
+​	* 根据结果判断成功与否   
+​	* 测试成功之后在.ssh文件夹下会生成名为known_hosts文件   
+​	* github地址可能存在变化，所以在使用过程known_hosts会做变动   
+​	
 5.修改已pull的本地仓库   
-	* 在.git目录下有一个config   
-	* 修改[remote "origin"]下边的url即可   
-	* 新拉取的按照ssh的url修改@后边的host即可   
+​	* 在.git目录下有一个config   
+​	* 修改[remote "origin"]下边的url即可   
+​	* 新拉取的按照ssh的url修改@后边的host即可   
 
 
 
