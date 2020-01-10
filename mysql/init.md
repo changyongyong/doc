@@ -47,6 +47,12 @@ flush privileges;
 grant all privileges on 'testdb'.* to 'test'@'%' identified by '1234';  
 ```
 
+-- 给账户分配部分的权限，并且通过外网访问
+```
+GRANT insert,delete,select,update ON test.* to username @ '%' IDENTIFIED BY 'password';
+FLUSH privileges;
+```
+  
 --刷新权限 .  
 ```
 flush privileges; 
