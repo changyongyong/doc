@@ -46,55 +46,55 @@ Docker Compose 将所管理的容器分为三层，分别是工程（project）�
 Docker Compose 运行目录下的所有文件（docker-compose.yml）组成一个工程,一个工程包含多个服务，每个服务中定义了容器运行的镜像、参数、依赖，一个服务可包括多个容器实例
 ## Docker Compose 常用命令与配置
 ### 常见命令
-ps：列出所有运行容器
+- ps：列出所有运行容器
 ```bash
 docker-compose ps
 ```
-logs：查看服务日志输出
+- logs：查看服务日志输出
 ```bash
 docker-compose logs
 ```
-port：打印绑定的公共端口，下面命令可以输出 eureka 服务 8761 端口所绑定的公共端口
+- port：打印绑定的公共端口，下面命令可以输出 eureka 服务 8761 端口所绑定的公共端口
 ```bash
 docker-compose port eureka 8761
 ```
-build：构建或者重新构建服务
+- build：构建或者重新构建服务
 ```bash
 docker-compose build
 ```
-start：启动指定服务已存在的容器
+- start：启动指定服务已存在的容器
 ```bash
 docker-compose start eureka
 ```
-stop：停止已运行的服务的容器
+- stop：停止已运行的服务的容器
 ```bash
 docker-compose stop eureka
 ```
-rm：删除指定服务的容器
+- rm：删除指定服务的容器
 ```bash
 docker-compose rm eureka
 ```
-up：构建、启动容器
+- up：构建、启动容器
 ```bash
 docker-compose up
 ```
-kill：通过发送 SIGKILL 信号来停止指定服务的容器
+- kill：通过发送 SIGKILL 信号来停止指定服务的容器
 ```bash
 docker-compose kill eureka
 ```
-pull：下载服务镜像
+- pull：下载服务镜像
 scale：设置指定服务运气容器的个数，以 service=num 形式指定
 ```bash
 docker-compose scale user=3 movie=3
 ```
-run：在一个服务上执行一个命令
+- run：在一个服务上执行一个命令
 ```bash
 docker-compose run web bash
 ```
 ### docker-compose.yml 属性
-version：指定 docker-compose.yml 文件的写法格式
-services：多个容器集合
-build：配置构建时，Compose 会利用它自动构建镜像，该值可以是一个路径，也可以是一个对象，用于指定 Dockerfile 参数
+- version：指定 docker-compose.yml 文件的写法格式
+- services：多个容器集合
+- build：配置构建时，Compose 会利用它自动构建镜像，该值可以是一个路径，也可以是一个对象，用于指定 Dockerfile 参数
 ```bash
 build: ./dir
 ---------------
@@ -104,13 +104,13 @@ build:
     args:
         buildno: 1
 ```
-command：覆盖容器启动后默认执行的命令
+- command：覆盖容器启动后默认执行的命令
 ```bash
 command: bundle exec thin -p 3000
 ----------------------------------
 command: [bundle,exec,thin,-p,3000]
 ```
-dns：配置 dns 服务器，可以是一个值或列表
+- dns：配置 dns 服务器，可以是一个值或列表
 ```bash
 dns: 8.8.8.8
 ------------
@@ -118,7 +118,7 @@ dns:
     - 8.8.8.8
     - 9.9.9.9
 ```
-dns_search：配置 DNS 搜索域，可以是一个值或列表
+- dns_search：配置 DNS 搜索域，可以是一个值或列表
 ```bash
 dns_search: example.com
 ------------------------
@@ -126,7 +126,7 @@ dns_search:
     - dc1.example.com
     - dc2.example.com
 ```
-environment：环境变量配置，可以用数组或字典两种方式
+- environment：环境变量配置，可以用数组或字典两种方式
 ```bash
 environment:
     RACK_ENV: development
@@ -136,20 +136,20 @@ environment:
     - RACK_ENV=development
     - SHOW=ture
 ```
-env_file：从文件中获取环境变量，可以指定一个文件路径或路径列表，其优先级低于 environment 指定的环境变量
+- env_file：从文件中获取环境变量，可以指定一个文件路径或路径列表，其优先级低于 environment 指定的环境变量
 ```bash
 env_file: .env
 ---------------
 env_file:
     - ./common.env
 ```
-expose：暴露端口，只将端口暴露给连接的服务，而不暴露给主机
+- expose：暴露端口，只将端口暴露给连接的服务，而不暴露给主机
 ```bash
 expose:
     - "3000"
     - "8000"
 ```
-image：指定服务所使用的镜像
+- image：指定服务所使用的镜像
 ```bash
 image: java
 network_mode：设置网络模式
@@ -159,36 +159,36 @@ network_mode: "none"
 network_mode: "service:[service name]"
 network_mode: "container:[container name/id]"
 ```
-ports：对外暴露的端口定义，和 expose 对应
+- ports：对外暴露的端口定义，和 expose 对应
 ```bash
 ports:   # 暴露端口信息  - "宿主机端口:容器暴露端口"
 - "8763:8763"
 - "8763:8763"
 ```
-links：将指定容器连接到当前连接，可以设置别名，避免ip方式导致的容器重启动态改变的无法连接情况
+- links：将指定容器连接到当前连接，可以设置别名，避免ip方式导致的容器重启动态改变的无法连接情况
 ```bash
 links:    # 指定服务名称:别名 
     - docker-compose-eureka-server:compose-eureka
 ```
-volumes：卷挂载路径
+- volumes：卷挂载路径
 ```bash
 volumes:
   - /lib
   - /var
 ```
-logs：日志输出信息
+- logs：日志输出信息
 ```bash
 --no-color          单色输出，不显示其他颜.
 -f, --follow        跟踪日志输出，就是可以实时查看日志
 -t, --timestamps    显示时间戳
 --tail              从日志的结尾显示，--tail=200
 ```
-Docker Compose 其它
-更新容器
-当服务的配置发生更改时，可使用 docker-compose up 命令更新配置
-此时，Compose 会删除旧容器并创建新容器，新容器会以不同的 IP 地址加入网络，名称保持不变，任何指向旧容起的连接都会被关闭，重新找到新容器并连接上去
-links
-服务之间可以使用服务名称相互访问，links 允许定义一个别名，从而使用该别名访问其它服务
+## Docker Compose 其它
+### 更新容器
+- 当服务的配置发生更改时，可使用 docker-compose up 命令更新配置
+- 此时，Compose 会删除旧容器并创建新容器，新容器会以不同的 IP 地址加入网络，名称保持不变，任何指向旧容起的连接都会被关闭，重新找到新容器并连接上去
+### links
+- 服务之间可以使用服务名称相互访问，links 允许定义一个别名，从而使用该别名访问其它服务
 ```bash
 version: '2'
 services:
@@ -199,5 +199,5 @@ services:
     db:
         image: postgres
 ```
-这样 Web 服务就可以使用 db 或 database 作为 hostname 访问 db 服务了
+- 这样 Web 服务就可以使用 db 或 database 作为 hostname 访问 db 服务了
 
