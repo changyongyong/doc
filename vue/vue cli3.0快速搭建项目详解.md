@@ -207,10 +207,10 @@ vue-cli升级到3之后，减少了很多的配置文件，将所有的配置项
 在vue.config.js添加
 
 ```
-1 chainWebpack: config => {
-2     // 修复HMR
-3     config.resolve.symlinks(true);
-4 },
+ chainWebpack: config => {
+     // 修复HMR
+     config.resolve.symlinks(true);
+ },
 ```
 
 修改css部分热更新还需要注释掉   //extract: true,
