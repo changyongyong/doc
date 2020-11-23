@@ -43,14 +43,14 @@ vue create <Project Name> //文件名 不支持驼峰（含大写字母）
    
 首先，会提示你选择一个preset（预设）：
 
-① 除最后两个，其他选项都是你此前保存的预设配置（如下图第一个“ my-default”是我之前保存的预设配置，如今便可以直接用了）：
+① 除最后两个，其他选项都是你此前保存的预设配置（如下图第一个“ my-default”是我之前保存的预设配置，如今便可以直接用了）：   
 ![avatar](img/vue_cli3.0快速搭建项目详解_1.png)
 
 如果没有配置保存过，则只有以下两个选项：
 
 ② default（babel，eslint）：默认设置（直接enter）非常适合快速创建一个新项目的原型，没有带任何辅助功能的 npm包
 
-③ Manually select features：自定义配置（按方向键 ↓）是我们所需要的面向生产的项目，提供可选功能的 npm 包
+③ Manually select features：自定义配置（按方向键 ↓）是我们所需要的面向生产的项目，提供可选功能的 npm 包  
 ![avatar](img/vue_cli3.0快速搭建项目详解_2.png)
 
 手动选择需要添加的配置项：
@@ -77,11 +77,11 @@ Vue-Router 利用了浏览器自身的hash 模式和 history 模式的特性来�
 
 ② css预处理器
 
-主要为css解决浏览器兼容、简化CSS代码 等问题
+主要为css解决浏览器兼容、简化CSS代码 等问题  
 ![avatar](img/vue_cli3.0快速搭建项目详解_4.png)
 
 ③ ESLint：  
-提供一个插件化的javascript代码检测工具，ESLint + Prettier //使用较多
+提供一个插件化的javascript代码检测工具，ESLint + Prettier //使用较多  
 ![avatar](img/vue_cli3.0快速搭建项目详解_5.png)
 
 ④ 何时检测：  
