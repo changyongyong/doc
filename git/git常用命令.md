@@ -150,4 +150,13 @@ git reset --hard HEAD~3
  git branch -m newName
 ```	
 
+## 清理某个文件(包含交历史，彻底从git中清理)
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch */文件路径' --prune-empty --tag-name-filter cat -- --all
+git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now
+git gc --aggressive --prune=now
+git push --force --verbose --dry-run
+git push --force
+
 
