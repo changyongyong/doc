@@ -34,3 +34,15 @@ git remote add origin git@gitlab.com:changyongyong/test.git
 git push -u origin --all
 git push -u origin --tags
 ```
+
+# Existing Git repository modify
+
+1.修改命令  
+``` bash
+git remote origin set-url [url]
+```
+2.先删后加  
+```bash
+git remote rm origin
+git remote add origin [url]
+```
