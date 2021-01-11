@@ -39,7 +39,7 @@ git push -u origin --tags
 
 1.修改命令  
 ``` bash
-git remote origin set-url [url]
+git remote set-url origin [url]
 ```
 2.先删后加  
 ```bash
