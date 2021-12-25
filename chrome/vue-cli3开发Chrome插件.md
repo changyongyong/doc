@@ -9,7 +9,7 @@ cd vue-extension
 ```
 安装. 
 ```
-vue-cli-plugin-chrome-ext 
+npm install vue-cli-plugin-chrome-ext -D
 ```
 使用插件创建扩展脚手架，根据安装对话选项设置好。
 ```
@@ -21,6 +21,7 @@ vue add chrome-ext
 ## 运行项目
 
 运行开发环境，对修改文件进行实时编译并自动在根目录下生成 dist 文件夹，然后在浏览器上加载 dist 文件夹完成插件安装。(注意：修改 background 文件跟 manifest.json 文件并不能实时刷新代码，需要重新加载插件才行)
+![](./img/1.png)
 ```
 npm run build-watch 
 ```
@@ -33,6 +34,7 @@ npm run build
 ## 引入element UI
 
 目前的插件加载到浏览器后弹出页面是这种界面：
+![](./img/2.png)
 
 平时我们肯定要引入好看的UI框架的，在这里我们可以引入 element-ui，首先安装：
 ```
@@ -113,6 +115,7 @@ export default {
 ```
 
 渲染效果：
+![](./img/3.png)
 
 当然，不仅仅是插件内部的页面，还可以将 element-ui 组件插入到 content 页面。
 
@@ -211,6 +214,8 @@ module.exports = {
 ```
 
 然后浏览器重新加载插件后打开 https://www.baidu.com/ 网址后可看到：
+![](./img/4.png)
+
 
 添加打包文件大小预览配置
 
