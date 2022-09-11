@@ -21,14 +21,14 @@ nginx
 ## 4.重启
 
 ```
-nginx-s reopen
+nginx -s reopen
 ```
 
 ## 5.停止
 
 ```
-nginx-s stop 
+nginx -s stop 
 
-nginx-s quit 
+nginx -s quit 
 
 ```
