@@ -21,7 +21,7 @@ nginx
 ## 4.重启
 
 ```
-nginx -s reopen
+nginx -s reload
 ```
 
 ## 5.停止
