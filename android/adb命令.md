@@ -57,6 +57,16 @@ adb shell pm list packages
 adb shell pm path [packageName]
 ```
 
+发送文件到手机
+```
+adb push /电脑文件 /手机目录
+```
+
+从手机拉文件到电脑
+```
+adb pull /手机文件 /电脑文件夹
+```
+
 ## 进阶命令
 
 启动app
