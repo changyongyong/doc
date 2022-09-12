@@ -16,9 +16,25 @@ adb install ./x.apk
 adb shell dumpsys activity top 
 ```
 
+查看当前界面的app的包名等信息
+```
+adb shell dumpsys window windows | findstr mFocusedApp    // window下
+adb shell dumpsys window windows | grep mFocusedApp     // mac
+```
+
 获取包的信息
 ```
 adb shell dumpsys package [packageName]
+```
+
+查看启动的app的包名
+```
+adb shell dumpsys activity top | find "ACTIVITY"
+```
+
+查看所有启动的应用的包名
+```
+adb shell dumpsys activity activities | findstr "Run"
 ```
 
 获取内存数据
