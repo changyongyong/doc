@@ -12,6 +12,11 @@ adb connect 192.168.10.9:56266      // 地址在开发者调试中的无线调�
 adb devices
 ```
 
+查看手机cpu架构信息
+```
+adb shell getprop ro.product.cpu.abi
+```
+
 安装app
 ```
 adb install ./x.apk
