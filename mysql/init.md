@@ -11,6 +11,25 @@ systemctl stop mariadb  #停止MariaDB
 systemctl restart mariadb  #重启MariaDB   
 
 systemctl enable mariadb  #设置开机启动   
+
+mac操作命令
+```
+启动：sudo mysql.server start
+关闭：sudo mysql.server stop
+重启：sudo mysql.server restart
+连接：mysql -u root -p
+开机启动：brew services start mysql
+关闭开机启动：brew services stop mysql
+
+安全配置向导：mysql_secure_installation
+查看 mysql 初始的密码策略: SHOW VARIABLES LIKE 'validate_password%'; 
+设置密码的验证强度等级:  set global validate_password.policy=LOW;
+设置密码的长度: set global validate_password.length=6;
+密码设置：ALTER USER 'root'@'localhost' IDENTIFIED BY '123456'; 
+
+
+开启mysql: brew services restart mysql
+```
    
 二、创建mysql数据库 . 
 1.创建数据库语法 . 
