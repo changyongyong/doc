@@ -1,5 +1,30 @@
 # jvm调优
 
+注意：所有命令环境为Linux
+
+## JVM内存模型
+### 堆内存逻辑分代
+![](img/duineicun.png)
+
+## Garbage Collectors
+### GC基本的三种算法
+1、Mark Sweep 标记清除   
+2、Copying 拷贝   
+3、Mark Compact 标记压缩   
+现在所有的GC都是围绕这三种算法开发
+
+### 现在的GC分布历史
+![](img/jvmgc.png)
+
+### 现用情况
+1.8以前都是CMS居多，1.8（包括）之后基本都是G1，因为1.7的G1刚出来不稳定，所以在1.8之后最好设置为G1，其中CMS问题BUG比较多，容易FullGC导致的SWT（stop the world）
+
+### 各种GC算法简单描述
+1、Serial最开始简单的单线程来回扫描废弃的内存对象，年轻代的要么清除要么迁移到老年代，适合几M和几十M的内存情况（现在多客户端用）   
+2、随着内存增加单线程搞不定，所以开始并行清除Parallel Scavenge，适合几十M、几百M以及1G的时候，1.8默认的是PS+PO组合GC    
+3、继续随着内存增加，虽然并行了清除了，还是不行，需要并发处理Concurrent GC，适合几十G的内存，就是CMS的出现，以及后续出现的G1、ZGC等都是并发的GC，采用的是三色标记法
+4、因为CMS问题BUG挺多，容易STW来FullGC，所以1.8以上基本使用G1，G1采用区域划分物理结构分区（逻辑结构不变，新生代/老年代），新生代区域可以直接升级为老年代
+
 ## java命令
 
 ### java命令输出的参数
@@ -121,13 +146,57 @@ java version "1.8.0_281"
 Java(TM) SE Runtime Environment (build 1.8.0_281-b09)
 Java HotSpot(TM) 64-Bit Server VM (build 25.281-b09, mixed mode)
      735
-
 ```
 
-## Garbage Collectors
+查看当前虚拟机使用的GC情况
+```
+java -XX:+PrintCommandLineFlags –version
+```
 
+## 排障
+较流行的有阿里的[https://arthas.aliyun.com/doc/]工具，排障较为方便，而且对服务器性能影响小
 
+### jps列出所有java程序
 
+### jinfo列出java进程信息
+
+### jstat内存分配情况
+```
+jstat -gc [pid]
+```
+### jstack查看线程情况
+
+### jmap查看堆内存对象占用情况，dump堆内存文件离线分析
+该命令为了打印当前快照会卡死jvm，所以生产慎重   
+1、半夜等生产业务量少的时候
+2、测试环境模拟压测
+3、将流量复制tcpcopy一份到备份/测试机上执行
+4、将有异常的机器或容器摘出来离线分析
+
+```
+jmap -histo [pid] | head -20 # 前20行的堆占用情况
+```
+```
+jmap -dump:format=b,file=[name.hprof] [pid] # dump堆内存情况，离线用工具分析
+```
+一般安全起见，生产不做直接分析，防止影响生产业务，所以在JVM启动的时候配上参数-XX:+HeapDumpOnOutOfMemoryError，在JVM OOM的时候dump出堆内存快照
+
+### top查看进程资源使用情况
+
+### 排查过程
+1、列出所有进程，找到最耗资源的进程和不稳定的进程
+```
+top   
+```
+2、列出进程内部的所有线程资源使用情况，找出异常线程
+```
+top -Hp [pid]  
+```
+```
+3、用jstack查看线程情况
+```
+jstack [2查到的线程编号]
+```
 
 
 
